@@ -42,14 +42,17 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/", "/favicon.ico").permitAll()
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                .requestMatchers("/api/faculty/**").hasAnyRole("ADMIN", "FACULTY")
-                .requestMatchers("/api/student/**").hasAnyRole("ADMIN", "FACULTY", "STUDENT")
-                .anyRequest().authenticated()
-            )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**").permitAll()   // login allowed
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/favicon.ico").permitAll()
+
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/faculty/**").hasAnyRole("ADMIN", "FACULTY")
+                        .requestMatchers("/api/student/**").hasAnyRole("ADMIN", "FACULTY", "STUDENT")
+
+                        .anyRequest().authenticated()   // MUST be last
+                )
             .exceptionHandling(ex -> ex
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
             )
