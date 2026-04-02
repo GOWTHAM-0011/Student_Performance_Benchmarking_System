@@ -25,7 +25,7 @@ export default function Sidebar({ items }) {
 
       <nav className="sidebar-nav">
         <div className="nav-section">Navigation</div>
-        {items.map(item => (
+        {/* {items.map(item => (
           <button
             key={item.path}
             className={`nav-btn ${location.pathname === item.path ? 'active' : ''}`}
@@ -34,7 +34,13 @@ export default function Sidebar({ items }) {
             <span className="nav-icon">{item.icon}</span>
             {item.label}
           </button>
-        ))}
+        ))} */}
+        <button
+  className="nav-btn"
+  onClick={() => navigate("/dashboard")}
+>
+  <span className="nav-text">🏠 My Dashboard</span>
+</button>
       </nav>
 
       <div className="sidebar-footer">

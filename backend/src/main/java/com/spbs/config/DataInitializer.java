@@ -46,7 +46,7 @@ public class DataInitializer implements CommandLineRunner {
         }
         System.out.println("[DataInitializer] Seeding initial data…");
 
-        final String pass = encoder.encode("password123");
+        final String pass = encoder.encode("123456");
 
         // ── Admin ───────────────────────────────────────────────
         User admin = makeUser("admin", "admin@spbs.edu", pass, "System Administrator", User.Role.ADMIN);

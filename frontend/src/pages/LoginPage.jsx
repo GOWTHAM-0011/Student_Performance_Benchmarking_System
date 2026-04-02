@@ -76,7 +76,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="demo-box">
+        {/* <div className="demo-box">
           <div className="demo-title">Quick Demo Login</div>
           {DEMOS.map(d => (
             <div className="demo-row" key={d.role}>
@@ -89,8 +89,8 @@ export default function LoginPage() {
                 {d.user} / {d.pass}
               </span>
             </div>
-          ))}
-        </div>
+          ))} */}
+        {/* </div> */}
       </div>
     </div>
   )
