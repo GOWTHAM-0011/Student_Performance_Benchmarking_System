@@ -3,7 +3,7 @@ import axios from 'axios'
 // Vite proxy forwards /api → http://localhost:8080
 // withCredentials: true is REQUIRED for session cookies to be sent back
 const api = axios.create({
-  baseURL: 'https://studentperformancebenchmarkingsystem-production-f427.up.railway.app/api',
+  baseURL: 'https://studentperformancebenchmarkingsystem-production-1ed3.up.railway.app/api',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
